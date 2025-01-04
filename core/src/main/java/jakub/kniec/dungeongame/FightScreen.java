@@ -19,8 +19,9 @@ public class FightScreen implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 640, 480);
         Gdx.input.setInputProcessor(stage);
-        PlayerActor playerActor = new PlayerActor();
-        stage.addActor(playerActor);
+//        PlayerActor playerActor = new PlayerActor();
+        CityGroup cityGroup = new CityGroup();
+        stage.addActor(cityGroup);
     }
 
     @Override
