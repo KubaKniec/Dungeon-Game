@@ -1,4 +1,4 @@
-package jakub.kniec.dungeongame;
+package jakub.kniec.dungeongame.Screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import jakub.kniec.dungeongame.Building;
+import jakub.kniec.dungeongame.DungeonGame;
 
 public class FightScreen implements Screen {
     private DungeonGame dungeonGame;
