@@ -1,9 +1,13 @@
 package jakub.kniec.dungeongame;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.utils.Align;
 
-public class TextureUtils {
+public class LibgdxUtils {
     private static Texture filledRectangleTexture;
 
     public static Texture getFilledRectangleTexture() {
@@ -15,5 +19,15 @@ public class TextureUtils {
             pixmap.dispose();
         }
         return filledRectangleTexture;
+    }
+
+    public static Label createLabel(String text) {
+        Label.LabelStyle labelStyle = new Label.LabelStyle();
+        labelStyle.font = new BitmapFont();
+        labelStyle.font.getData().scale(1);
+        labelStyle.fontColor = Color.WHITE;
+        Label label = new Label(text, labelStyle);
+        label.setAlignment(Align.center);
+        return label;
     }
 }

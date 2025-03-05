@@ -1,17 +1,15 @@
 package jakub.kniec.dungeongame.Actor;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import jakub.kniec.dungeongame.Enum.ButtonType;
-import jakub.kniec.dungeongame.TextureUtils;
+import jakub.kniec.dungeongame.LibgdxUtils;
 
 public class ClickableActor extends Actor {
     private Label label;
@@ -41,21 +39,13 @@ public class ClickableActor extends Actor {
             }
         });*/
 
-        label = createLabel(text);
 
-    }
-
-    private Label createLabel(String text) {
-        Label.LabelStyle labelStyle = new Label.LabelStyle();
-        labelStyle.font = new BitmapFont();
-        labelStyle.font.getData().scale(1);
-        labelStyle.fontColor = Color.WHITE;
-        Label label = new Label(text, labelStyle);
+        label = LibgdxUtils.createLabel(text);
         label.setPosition(getX(), getY());
-        label.setSize(getWidth(), getHeight());
-        label.setAlignment(Align.center);
-        return label;
+        label.setSize(getWidth(),getHeight());
+
     }
+
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
@@ -64,7 +54,7 @@ public class ClickableActor extends Actor {
             batch.setColor(Color.RED);
         else
             batch.setColor(Color.TAN);
-        batch.draw(TextureUtils.getFilledRectangleTexture(), getX(), getY(), getWidth(), getHeight());
+        batch.draw(LibgdxUtils.getFilledRectangleTexture(), getX(), getY(), getWidth(), getHeight());
 //        // Rysowanie tekstu
         label.draw(batch,parentAlpha);
     }
