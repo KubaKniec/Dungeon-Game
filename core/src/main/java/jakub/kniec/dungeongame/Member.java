@@ -11,7 +11,7 @@ public class Member {
     private int lvl = 1;
 
     public Member() {
-        name = "John";
+        name = generateName();
         Random random = new Random();
         hp = random.nextInt(50,151); //100  min50 max 150
         damage = random.nextInt(5,16); //10 min5 max 15
@@ -44,6 +44,12 @@ public class Member {
         );
     }
 
+    public String generateName() {
+        Random random = new Random();
+        List<String> names = CharacterNames.names;
+        return names.get(random.nextInt(1,11));
+    }
+
     public String getName() {
         return name;
     }
@@ -66,7 +72,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return "CrewMember{" +
+        return "CrewMember{" + name + ", "+
             "hp=" + hp +
             ", damage=" + damage +
             ", defense=" + defense +

@@ -50,10 +50,7 @@ public class ClickableActor extends Actor {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         //tło
-        if (buttonType.equals(ButtonType.BACK))
-            batch.setColor(Color.RED);
-        else
-            batch.setColor(Color.TAN);
+        batch.setColor(Color.TAN);
         batch.draw(LibgdxUtils.getFilledRectangleTexture(), getX(), getY(), getWidth(), getHeight());
 //        // Rysowanie tekstu
         label.draw(batch,parentAlpha);
