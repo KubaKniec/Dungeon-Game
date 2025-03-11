@@ -26,7 +26,7 @@ public abstract class MyScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
         background = new Texture(getBackgroundFile());
         if (!getScreenType().equals(ScreenType.CITY)) {
-            ClickableActor back = new ClickableActor(100,80,100,75,"Back", ButtonType.BACK, ()->
+            ClickableActor back = new ClickableActor(100,80,100,75,"Back", ()->
                 dungeonGame.changeScreen(ScreenType.CITY));
             stage.addActor(back);
         }

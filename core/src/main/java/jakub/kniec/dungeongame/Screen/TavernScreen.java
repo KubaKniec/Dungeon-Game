@@ -7,27 +7,19 @@ import jakub.kniec.dungeongame.DungeonGame;
 import jakub.kniec.dungeongame.Enum.ButtonType;
 import jakub.kniec.dungeongame.Enum.ScreenType;
 import jakub.kniec.dungeongame.Member;
+import jakub.kniec.dungeongame.MemberGroup;
 
 public class TavernScreen extends MyScreen {
 
     public TavernScreen(DungeonGame dungeonGame){
         super(dungeonGame);
 
-        Member member = new Member();
-        float centerX = (DungeonGame.WIDTH - 150) / 2f;  // Szerokość ekranu - szerokość aktora / 2
-        float centerY = (DungeonGame.HEIGHT - 400) / 2f; // Wysokość ekranu - wysokość aktora / 2
-        MemberUiActor memberUiActor = new MemberUiActor(member, centerX, centerY);
-
-        stage.addActor(memberUiActor);
+        MemberGroup memberGroup = new MemberGroup(100,400);
 
 
-        ClickableActor temp = new ClickableActor(100,550,100,75,"temp", ButtonType.NORMAL, () ->{});
-//        ClickableActor rest = new ClickableActor(1000,550,100,75,"Rest", ButtonType.NORMAL, () ->{});
-//        ClickableActor crew = new ClickableActor(550,300,100,75,"Crew", ButtonType.NORMAL, () ->{});
-
-//        stage.addActor(rest);
-        stage.addActor(temp);
-//        stage.addActor(crew);
+        stage.addActor(memberGroup);
+//        ClickableActor temp = new ClickableActor(100,550,100,75,"temp", () ->{});
+//        stage.addActor(temp);
     }
 
     @Override

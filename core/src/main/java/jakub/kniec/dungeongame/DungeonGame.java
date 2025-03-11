@@ -9,8 +9,8 @@ import jakub.kniec.dungeongame.Screen.FightScreen;
 import jakub.kniec.dungeongame.Screen.TavernScreen;
 
 public class DungeonGame extends Game {
-    public static final int WIDTH = 1472;
-    public static final int HEIGHT = 832;
+    public static final int WIDTH = 1672;
+    public static final int HEIGHT = 1032;
     private SpriteBatch batch;
 
 

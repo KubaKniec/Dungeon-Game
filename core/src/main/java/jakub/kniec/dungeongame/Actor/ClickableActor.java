@@ -14,45 +14,45 @@ import jakub.kniec.dungeongame.LibgdxUtils;
 public class ClickableActor extends Actor {
     private Label label;
     private Runnable action;
-    private ButtonType buttonType;
+    private Color backgroundColor = Color.TAN;
+    private Color textColor = Color.BLACK;
 
-    public ClickableActor(float x, float y, float width, float height, String text, ButtonType buttonType, Runnable action) {
+    public ClickableActor(float x, float y, float width, float height, String text, Runnable action) {
         this.action = action;
-        this.buttonType = buttonType;
+
         setBounds(x, y, width, height);
 
-        addListener(new ClickListener(){ //todo wyjaśnic skladnie anonimowych klas
+        addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 action.run();
                 return super.touchDown(event, x, y, pointer, button);
             }
         });
-    /*  addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                if (bounds.contains(x, y)) {
-                    onClick();
-                    return true;
-                }
-                return false;
-            }
-        });*/
-
 
         label = LibgdxUtils.createLabel(text);
         label.setPosition(getX(), getY());
         label.setSize(getWidth(),getHeight());
+        label.setColor(textColor);
 
+    }
+
+    public void setBackgroundColor(Color color) {
+        this.backgroundColor = color;
+    }
+
+    public void setTextColor(Color color) {
+        this.textColor = color;
+        label.setColor(color);
     }
 
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         //tło
-        batch.setColor(Color.TAN);
+        batch.setColor(backgroundColor);
         batch.draw(LibgdxUtils.getFilledRectangleTexture(), getX(), getY(), getWidth(), getHeight());
-//        // Rysowanie tekstu
+        // Rysowanie tekstu
         label.draw(batch,parentAlpha);
     }
 

@@ -9,11 +9,11 @@ public class CityScreen extends MyScreen {
 
     public CityScreen(DungeonGame dungeonGame) {
         super(dungeonGame);
-        ClickableActor tavern = new ClickableActor(750,80,100,75,"Tavern", ButtonType.NORMAL, () ->
+        ClickableActor tavern = new ClickableActor(850,80,100,75,"Tavern",  () ->
             dungeonGame.changeScreen(ScreenType.TAVERN));
-        ClickableActor blacksmith = new ClickableActor(1015,80,150,75,"Blacksmith",ButtonType.NORMAL, () ->
+        ClickableActor blacksmith = new ClickableActor(1150,80,150,75,"Blacksmith", () ->
             dungeonGame.changeScreen(ScreenType.BLACKSMITH));
-        ClickableActor adventure = new ClickableActor(900,600,150,75,"Adventure",ButtonType.NORMAL, () ->{});
+        ClickableActor adventure = new ClickableActor(900,600,150,75,"Adventure", () ->{});
 
         stage.addActor(tavern);
         stage.addActor(blacksmith);

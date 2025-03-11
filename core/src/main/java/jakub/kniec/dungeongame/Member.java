@@ -45,9 +45,8 @@ public class Member {
     }
 
     public String generateName() {
-        Random random = new Random();
-        List<String> names = CharacterNames.names;
-        return names.get(random.nextInt(1,11));
+        CharacterNames characterNames = new CharacterNames();
+        return characterNames.getRandomNames();
     }
 
     public String getName() {
