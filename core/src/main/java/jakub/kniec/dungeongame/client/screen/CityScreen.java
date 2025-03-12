@@ -1,9 +1,8 @@
-package jakub.kniec.dungeongame.Screen;
+package jakub.kniec.dungeongame.client.screen;
 
-import jakub.kniec.dungeongame.Actor.ClickableActor;
-import jakub.kniec.dungeongame.DungeonGame;
-import jakub.kniec.dungeongame.Enum.ButtonType;
-import jakub.kniec.dungeongame.Enum.ScreenType;
+import jakub.kniec.dungeongame.client.actor.ClickableActor;
+import jakub.kniec.dungeongame.client.DungeonGame;
+import jakub.kniec.dungeongame.client.enums.ScreenType;
 
 public class CityScreen extends MyScreen {
 

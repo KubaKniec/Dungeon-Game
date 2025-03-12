@@ -1,4 +1,4 @@
-package jakub.kniec.dungeongame.Screen;
+package jakub.kniec.dungeongame.client.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -8,10 +8,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
-import jakub.kniec.dungeongame.Actor.ClickableActor;
-import jakub.kniec.dungeongame.DungeonGame;
-import jakub.kniec.dungeongame.Enum.ButtonType;
-import jakub.kniec.dungeongame.Enum.ScreenType;
+import jakub.kniec.dungeongame.client.actor.ClickableActor;
+import jakub.kniec.dungeongame.client.DungeonGame;
+import jakub.kniec.dungeongame.client.enums.ScreenType;
 
 public abstract class MyScreen implements Screen {
     private DungeonGame dungeonGame;

@@ -1,9 +1,14 @@
-package jakub.kniec.dungeongame;
+package jakub.kniec.dungeongame.server;
+
+import com.badlogic.gdx.graphics.Texture;
+import jakub.kniec.dungeongame.client.CharacterAvatars;
+import jakub.kniec.dungeongame.client.CharacterNames;
 
 import java.util.List;
 import java.util.Random;
 
 public class Member {
+    private String avatar;
     private String name;
     private int hp;
     private int damage;
@@ -11,6 +16,7 @@ public class Member {
     private int lvl = 1;
 
     public Member() {
+        avatar = generateAvatar();
         name = generateName();
         Random random = new Random();
         hp = random.nextInt(50,151); //100  min50 max 150
@@ -47,6 +53,15 @@ public class Member {
     public String generateName() {
         CharacterNames characterNames = new CharacterNames();
         return characterNames.getRandomNames();
+    }
+
+    public String generateAvatar() {
+        CharacterAvatars characterAvatars = new CharacterAvatars();
+        return characterAvatars.getRandomAvatar();
+    }
+
+    public String getAvatar() {
+        return avatar;
     }
 
     public String getName() {

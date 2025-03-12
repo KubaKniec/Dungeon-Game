@@ -1,15 +1,12 @@
-package jakub.kniec.dungeongame.Actor;
+package jakub.kniec.dungeongame.client.actor;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.Align;
-import jakub.kniec.dungeongame.Enum.ButtonType;
-import jakub.kniec.dungeongame.LibgdxUtils;
+import jakub.kniec.dungeongame.client.LibgdxUtils;
 
 public class ClickableActor extends Actor {
     private Label label;

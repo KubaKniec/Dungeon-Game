@@ -1,38 +1,44 @@
-package jakub.kniec.dungeongame.Actor;
+package jakub.kniec.dungeongame.client.actor;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import jakub.kniec.dungeongame.CharacterAvatars;
-import jakub.kniec.dungeongame.Member;
-import jakub.kniec.dungeongame.LibgdxUtils;
+import jakub.kniec.dungeongame.server.Member;
+import jakub.kniec.dungeongame.client.LibgdxUtils;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemberUiActor extends Actor {
+
+public class MemberUiActor extends Group { // zrobiłem Group bo musiałem dodać hireButton jako Actor
+    public static final float WIDTH = 180;
+    public static final float HEIGHT = 480;
     private Member member;
     private List<Label> labels;
     private Texture avatar;
-    private ClickableActor hireButton;
     private static final float PADDING_AVATAR = 10;
     private static final float PADDING_TEXT = 40;
+    private ClickableActor hireButton;
+
 
     public MemberUiActor(Member member, float x, float y) {
-        CharacterAvatars characterAvatars = new CharacterAvatars();
         this.member = member;
-        setBounds(x, y, 230, 520);
+        setBounds(x, y, WIDTH, HEIGHT);
         labels = new ArrayList<>();
         labels.add(LibgdxUtils.createLabel(member.getName()));
         for (int i = 1; i < 6; i++) {
             labels.add(LibgdxUtils.createLabel(member.getInfo().get(i)));
         }
-        avatar = characterAvatars.getRandomAvatar();
+        String avatarName = member.getAvatar();
+        avatar = new Texture("avatars/" + avatarName + ".png");
+        hireButton = new ClickableActor(getWidth()/4, 10, getWidth()*0.5f, getHeight()*0.1f, "Hire", () -> {
+            System.out.println("Hired: " + member.getName());
+        });
 
-        hireButton = new ClickableActor(getX() + 10, getY() + 20, 200, 50, "Hire",
-            () -> System.out.println("Hired: " + member.getName())); // nie działa :(
+        addActor(hireButton);
+//
 //        hireButton.setBackgroundColor(Color.GREEN); //Dlaczego to koloruje wszystko
 //        hireButton.setTextColor(Color.BLACK);
 
@@ -52,9 +58,9 @@ public class MemberUiActor extends Actor {
         batch.draw(LibgdxUtils.getFilledRectangleTexture(), getX(), getY(), getWidth(), getHeight());
 
         // Rysowanie avatara
-        float avatarX = getX() + (getWidth() - 200) / 2; // Wyśrodkowany poziomo
-        float avatarY = getY() + getHeight() - 200 - PADDING_AVATAR;
-        batch.draw(avatar, avatarX, avatarY, 200, 200);
+        float avatarX = getX() + PADDING_AVATAR; // Wyśrodkowany poziomo
+        float avatarY = getY() + PADDING_AVATAR + getHeight()-getWidth();
+        batch.draw(avatar, avatarX, avatarY, getWidth() - PADDING_AVATAR*2, getWidth() - PADDING_AVATAR*2);
 
         // Rysowanie napisów pod avatarem
         float textY = avatarY - PADDING_TEXT;
@@ -65,7 +71,9 @@ public class MemberUiActor extends Actor {
             label.draw(batch, parentAlpha);
             textY -= 35; // Odstęp między liniami
         }
-        hireButton.draw(batch, parentAlpha);
+
+
+        super.draw(batch,parentAlpha); //dlaczego bez super nie działa (hireButton.draw)
     }
 
 

@@ -1,4 +1,4 @@
-package jakub.kniec.dungeongame.Actor;
+package jakub.kniec.dungeongame.client.actor;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
